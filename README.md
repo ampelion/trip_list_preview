@@ -6,7 +6,7 @@ Live demo: https://ampelion.github.io/Trip_List_Preview/ (San Diego County, Apri
 
 ## Why this exists
 
-I built this in one Claude Code session as a learning exercise for the Anthropic Fellows application. I'm a biologist, I started off in ornithology and have been using ML in my work for years but I'd never used an agentic coding tool. The application asked about using Claude Code, so I added the extension to my vscode interface, picked a real scientific question I'd been wanting to scope, and built it.
+I built this in one Claude Code session as a learning exercise for the Anthropic Fellows application. I'm a biologist, started in ornithology and have been using ML for years, but never used an agentic coding tool. The application asked about using Claude Code, so I added the extension to my VS Code interface, picked a real scientific question I'd been wanting to scope, and built it.
 
 ## How it works
 
