@@ -24,12 +24,12 @@ The live demo report is at **https://ampelion.github.io/Trip_List_Preview/** —
 1. Install [Python 3.10+](https://www.python.org/downloads/).
 2. Get a free eBird API key at https://ebird.org/api/keygen.
 3. Open PowerShell in this folder and run:
-   ```
+   ```bash
    python -m venv .venv
    .venv\Scripts\pip install -r requirements.txt
    ```
 4. Copy `.env.example` to `.env` and paste your API key:
-   ```
+   ```bash
    EBIRD_API_KEY=your_key_here
    ```
 
@@ -43,7 +43,7 @@ Find county codes at [ebird.org/explore](https://ebird.org/explore) → click in
 
 ### To publish a new report as the live demo
 After generating, commit and push the regenerated HTML:
-```
+```bash
 git add docs/index.html
 git commit -m "update report"
 git push
