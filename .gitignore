@@ -1,0 +1,16 @@
+.env
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.pyo
+.pytest_cache/
+.mypy_cache/
+
+# Generated output
+output/
+cache/
+*.mp3
+*.wav
+*.png
+!docs/**/*.png
