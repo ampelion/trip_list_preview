@@ -21,7 +21,7 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("month", type=int, help="1-12")
     parser.add_argument("--top", type=int, default=20)
     parser.add_argument("--sample-size", type=int, default=200)
-    parser.add_argument("--output-dir", default="output")
+    parser.add_argument("--output-dir", default="docs")
     parser.add_argument("--no-cache", action="store_true")
     parser.add_argument("--skip-media", action="store_true", help="skip Macaulay downloads, just produce table")
     parser.add_argument("--remote-media", action="store_true",

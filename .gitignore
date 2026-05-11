@@ -7,7 +7,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
-# Cached API responses and locally-downloaded media (HTML in output/ IS committed)
+# Cached API responses and locally-downloaded media (HTML in docs/ IS committed)
 cache/
-output/audio/
-output/spectrograms/
+docs/audio/
+docs/spectrograms/
