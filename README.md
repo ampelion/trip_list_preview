@@ -27,6 +27,42 @@ I built this in one Claude Code session as a learning exercise for the Anthropic
 - Macaulay Library CDN for audio (mp3) and pre-rendered spectrograms (JPEG), referenced directly rather than rehosted
 - Static HTML output, deployed via GitHub Pages
 
+## Usage
+
+The live demo report is at **https://ampelion.github.io/Trip_List_Preview/** — anyone can open the link; no install needed.
+
+### To generate your own reports
+
+**One-time setup** (skip if already done on this machine):
+1. Install [Python 3.10+](https://www.python.org/downloads/).
+2. Get a free eBird API key at https://ebird.org/api/keygen.
+3. Open PowerShell in this folder and run:
+   ```
+   python -m venv .venv
+   .venv\Scripts\pip install -r requirements.txt
+   ```
+4. Copy `.env.example` to `.env` and paste your API key:
+   ```
+   EBIRD_API_KEY=your_key_here
+   ```
+
+**Each time you want a report:**
+1. Open **File Explorer** (Win+E), navigate to this folder, and double-click `start.bat`.
+   *(Don't double-click `start.bat` inside VS Code's file panel — that opens it as text. Use File Explorer, or run `.\start.bat` from a terminal.)*
+2. Your browser opens to a form. Pick a county code, year, and month, then click **Generate report**. First run takes ~30 seconds.
+3. The report opens automatically.
+
+Find county codes at [ebird.org/explore](https://ebird.org/explore) → click into a county → the code is in the URL (e.g. `US-CA-073` for San Diego).
+
+### To publish a new report as the live demo
+After generating, commit and push the regenerated HTML:
+```
+git add docs/index.html
+git commit -m "update report"
+git push
+```
+Wait ~1 minute and your new report replaces the one at the demo URL.
+
 ## Session notes
 
 A handful of forking moments shaped the final tool:
