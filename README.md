@@ -13,7 +13,7 @@ Suggested citations when referencing this tool or its outputs:
 > Macaulay Library. The Macaulay Library at the Cornell Lab of Ornithology. https://www.macaulaylibrary.org
 
 
-## A small tool that takes a US county code and a month, queries eBird for the top 20 most-frequent species in that county/month, and outputs an HTML page with each species' name, a representative Macaulay Library audio recording, and its spectrogram.
+A small tool that takes a US county code and a month, queries eBird for the top 20 most-frequent species in that county/month, and outputs an HTML page with each species' name, a representative Macaulay Library audio recording, and its spectrogram.
 
 Live demo: https://ampelion.github.io/Trip_List_Preview/ (San Diego County, April)
 
