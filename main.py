@@ -24,6 +24,8 @@ def main(argv: list[str] | None = None) -> int:
     parser.add_argument("--output-dir", default="output")
     parser.add_argument("--no-cache", action="store_true")
     parser.add_argument("--skip-media", action="store_true", help="skip Macaulay downloads, just produce table")
+    parser.add_argument("--remote-media", action="store_true",
+                        help="reference Macaulay CDN URLs in the HTML instead of downloading mp3/jpg locally")
     args = parser.parse_args(argv)
 
     load_dotenv()
@@ -78,21 +80,26 @@ def main(argv: list[str] | None = None) -> int:
                 recordist = asset.get("userDisplayName")
                 if asset_id:
                     asset_url = f"https://macaulaylibrary.org/asset/{asset_id}"
-                    audio_path = audio_dir / f"{asset_id}.mp3"
-                    spec_path = spec_dir / f"{asset_id}.jpg"
-                    try:
-                        fetched_a = ml.download_asset(asset_id, "audio", audio_path)
-                        fetched_s = ml.download_asset(asset_id, "spectrogram_small", spec_path)
-                        audio_rel = f"audio/{asset_id}.mp3"
-                        spec_rel = f"spectrograms/{asset_id}.jpg"
-                        tag = []
-                        if fetched_a: tag.append("audio")
-                        if fetched_s: tag.append("spec")
-                        if not tag: tag.append("cached")
-                        print(f" ML{asset_id} ({', '.join(tag)})")
-                    except Exception as e:
-                        print(f" ERROR: {e}")
-                        audio_rel = spec_rel = None
+                    if args.remote_media:
+                        audio_rel = f"https://cdn.download.ams.birds.cornell.edu/api/v1/asset/{asset_id}/audio"
+                        spec_rel = f"https://cdn.download.ams.birds.cornell.edu/api/v1/asset/{asset_id}/spectrogram_small"
+                        print(f" ML{asset_id} (remote)")
+                    else:
+                        audio_path = audio_dir / f"{asset_id}.mp3"
+                        spec_path = spec_dir / f"{asset_id}.jpg"
+                        try:
+                            fetched_a = ml.download_asset(asset_id, "audio", audio_path)
+                            fetched_s = ml.download_asset(asset_id, "spectrogram_small", spec_path)
+                            audio_rel = f"audio/{asset_id}.mp3"
+                            spec_rel = f"spectrograms/{asset_id}.jpg"
+                            tag = []
+                            if fetched_a: tag.append("audio")
+                            if fetched_s: tag.append("spec")
+                            if not tag: tag.append("cached")
+                            print(f" ML{asset_id} ({', '.join(tag)})")
+                        except Exception as e:
+                            print(f" ERROR: {e}")
+                            audio_rel = spec_rel = None
                 else:
                     print(" no asset id?")
             else:

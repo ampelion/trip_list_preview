@@ -7,10 +7,7 @@ __pycache__/
 .pytest_cache/
 .mypy_cache/
 
-# Generated output
-output/
+# Cached API responses and locally-downloaded media (HTML in output/ IS committed)
 cache/
-*.mp3
-*.wav
-*.png
-!docs/**/*.png
+output/audio/
+output/spectrograms/
